@@ -17,6 +17,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
+    - name: set User
+      run: |
+        git config --global user.email "Action@github.com"
+        git config --global user.name "Action"
 
     - name: Change directory to my-app
       run: cd my-app
