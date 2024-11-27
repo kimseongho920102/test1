@@ -19,8 +19,8 @@ jobs:
         node-version: '16'
     - name: set User
       run: |
-        git config --global user.email "Action@github.com"
-        git config --global user.name "Action"
+        git config --global user.email "akflsvkqpt@gmail.com"
+        git config --global user.name "kimseongho920102"
 
     - name: Change directory to my-app
       run: cd my-app
