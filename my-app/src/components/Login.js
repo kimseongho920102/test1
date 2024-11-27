@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // 로그인 로직은 생략
+    navigate("/dashboard");
+  };
+
   return (
     <div className="login-container">
       <h1>로그인</h1>
@@ -12,11 +20,10 @@ const Login = () => {
         <label htmlFor="password">비밀번호</label>
         <input type="password" id="password" placeholder="비밀번호를 입력하세요" required />
 
-        <button type="submit" className="login-button">로그인</button>
+        <button type="button" className="login-button" onClick={handleLogin}>
+          로그인
+        </button>
       </form>
-      <p className="signup-link">
-        계정이 없으신가요? <a href="/signup">회원가입</a>
-      </p>
     </div>
   );
 };
