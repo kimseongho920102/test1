@@ -22,9 +22,6 @@ jobs:
         git config --global user.email "akflsvkqpt@gmail.com"
         git config --global user.name "kimseongho920102"
 
-    - name: Change directory to my-app
-      run: cd my-app
-
     - name: Install dependencies
       run: npm install
       working-directory: ./my-app
