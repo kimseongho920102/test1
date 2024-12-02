@@ -18,4 +18,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1' // 최신 버전 사용
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    
+    // Logback 의존성 제거
+    implementation('org.springframework.boot:spring-boot-starter') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
 }

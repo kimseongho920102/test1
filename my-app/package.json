@@ -1,9 +1,9 @@
 {
-  "homepage": "https://kimseongho920102.github.io/test1",
+  "homepage": ".",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://vigilant-parakeet-rv5jwrg9qp63xr65-8080.app.github.dev/",
+  "proxy": "https://vigilant-parakeet-rv5jwrg9qp63xr65-8080.app.github.dev",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

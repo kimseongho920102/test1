@@ -11,7 +11,7 @@ public class MyService {
         this.myMapper = myMapper;
     }
 
-    public int getOne() {
-        return myMapper.selectOne();
+    public String getValue(String value) {
+        return myMapper.selectWithValue(value);
     }
 }
