@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/")
-    public String redirect() {
+    @RequestMapping(value = {"/", "/{path:[^\\.]*}"})
+    public String forward() {
         return "forward:/index.html";
     }
 }

@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://vigilant-parakeet-rv5jwrg9qp63xr65-3000.app.github.dev/") // React 개발 서버 URL
+                .allowedOrigins("https://vigilant-parakeet-rv5jwrg9qp63xr65-3000.app.github.dev") // React 개발 서버 URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 }
