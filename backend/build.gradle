@@ -10,6 +10,7 @@ sourceCompatibility = '17'
 
 configurations {
     all {
+        // Logback과 log4j-to-slf4j 전역적으로 제외
         exclude group: 'ch.qos.logback', module: 'logback-classic'
         exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
     }
@@ -23,29 +24,25 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot 주요 의존성
+    // Spring Boot 의존성
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // Log4j2 의존성만 사용
+    // Log4j2 의존성 (Logback 대신 사용)
     implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 
     // MyBatis 의존성
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
 
-    // H2 Database
+    // H2 Database (런타임 의존성)
     runtimeOnly 'com.h2database:h2'
 
-    // Logback 의존성 제거
-    implementation('org.springframework.boot:spring-boot-starter') {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-    }
-
-    // log4j-to-slf4j 제거
-    implementation('org.apache.logging.log4j:log4j-to-slf4j') {
-        exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j2-impl'
-    }
-
     // 테스트 의존성
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        // 테스트 환경에서도 logback 제거
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+    }
+    
+    // 기존 의존성 외에 P6Spy 추가
+    implementation 'p6spy:p6spy:3.9.1'
 }
