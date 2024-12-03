@@ -1,10 +1,8 @@
-package com.example.demo.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
@@ -12,17 +10,26 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/auth/**", "/api/public/**").permitAll() // 인증 없이 접근 가능
-                .anyRequest().authenticated() // 나머지는 인증 필요
+            .cors().and() // CORS 허용
+            .csrf().disable() // CSRF 비활성화
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/login", "/signup", "/error", "/api/auth/**").permitAll() // 인증 없이 접근 가능 경로 설정
+                .anyRequest().authenticated() // 그 외 요청은 인증 필요
             )
-            .csrf(csrf -> csrf.disable()) // CSRF 비활성화
-            .cors(cors -> {}); // CORS 설정 (내용이 비어 있어도 기본 동작 설정)
+            .formLogin()
+                .loginPage("/login") // 커스텀 로그인 페이지 설정
+                .permitAll()
+            .and()
+            .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .permitAll();
+
         return http.build();
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder bcryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }
