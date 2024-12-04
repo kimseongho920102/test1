@@ -6,6 +6,7 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -35,5 +36,10 @@ public class SignupController {
                 new SignupResponse(false, "회원가입 중 오류가 발생했습니다.")
             );
         }
+    }
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 }

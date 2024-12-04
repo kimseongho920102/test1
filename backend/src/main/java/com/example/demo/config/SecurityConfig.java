@@ -17,7 +17,11 @@ public class SecurityConfig {
             // 모든 요청 허용
             .authorizeHttpRequests(auth -> auth
                 .anyRequest().permitAll()
-            );
+            )
+            .headers()
+            .frameOptions()
+            .sameOrigin()  // 또는 .disable()로 설정할 수도 있음
+            ;
 
         return http.build();
     }
