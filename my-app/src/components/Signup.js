@@ -5,11 +5,13 @@ import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
   const handleSignup = async () => {
     if (password !== confirmPassword) {
@@ -18,7 +20,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/signup", {
+      const response = await axios.post("${API_URL}/api/signup", {
         email,
         password,
       });
@@ -46,6 +48,15 @@ const Signup = () => {
           handleSignup();
         }}
       >
+        <label htmlFor="email">사용자명</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="이름을알려주세요"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
         <label htmlFor="email">이메일</label>
         <input
           type="email"

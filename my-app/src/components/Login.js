@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Login.css"; // CSS 파일을 import합니다.
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +12,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/login", {
+      const response = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -27,21 +30,43 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>로그인</h1>
-      <input
-        type="email"
-        placeholder="이메일"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>로그인</button>
+      <form className="login-form" onSubmit={(e) => e.preventDefault()}>
+        <label htmlFor="email">이메일</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="이메일을 입력하세요"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password">비밀번호</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="비밀번호를 입력하세요"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="button" className="login-button" onClick={handleLogin}>
+          로그인
+        </button>
+      </form>
+      <div className="signup-link">
+        계정이 없으신가요? 
+        <button
+        type="button"
+        className="signup-button"
+        onClick={() => navigate("/signup")}
+      >
+        회원가입
+      </button>
+      </div>
     </div>
   );
 };
