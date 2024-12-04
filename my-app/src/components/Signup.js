@@ -14,29 +14,15 @@ const Signup = () => {
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
   const handleSignup = async () => {
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
-
     try {
-      const response = await axios.post("${API_URL}/api/signup", {
-        email,
-        password,
-      });
-
-      if (response.data.success) {
-        setSuccess("Signup successful! Redirecting to login...");
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
-      } else {
-        setError(response.data.message || "Signup failed. Please try again.");
-      }
-    } catch (err) {
-      setError("Error during signup. Please try again.");
+        const response = await axios.post(`${API_URL}/api/signup`, { username, email, password });
+        console.log(response.data);
+    } catch (error) {
+        console.error("Error details:", error.response || error.message);
+        alert("Signup failed. Check console for details.");
     }
-  };
+};
+
 
   return (
     <div className="signup-container">
@@ -48,7 +34,7 @@ const Signup = () => {
           handleSignup();
         }}
       >
-        <label htmlFor="email">사용자명</label>
+        <label htmlFor="username">사용자명</label>
         <input
           type="text"
           id="username"
