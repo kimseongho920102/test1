@@ -22,7 +22,7 @@ const Login = () => {
       localStorage.setItem("authToken", token);
 
       // 로그인 성공 후 대시보드로 이동
-      navigate("/dashboard");
+      navigate("/MainLayout");
     } catch (error) {
       console.error("Login failed:", error);
       alert("로그인에 실패했습니다.");

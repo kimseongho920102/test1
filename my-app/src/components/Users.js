@@ -26,7 +26,7 @@ const Users = () => {
       key: "createdAt",
       render: (text) => new Date(text).toLocaleDateString(), // 날짜 포맷팅
     },
-  ]);
+  ],[]);
 
   useEffect(() => {
     const fetchUsers = async () => {
