@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
+import 'antd/dist/reset.css'; // Ant Design 기본 스타일
 
 axios.interceptors.request.use(
   (config) => {
