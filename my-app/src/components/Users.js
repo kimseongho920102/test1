@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTable, usePagination } from "react-table";
@@ -9,49 +9,49 @@ const Users = () => {
   const [loading, setLoading] = useState(true);
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
   const navigate = useNavigate();
-
-  // 데이터 및 테이블 설정
-  const columns = [
-    {
-      Header: "이름",
-      accessor: "username", // 데이터의 키
-    },
-    {
-      Header: "이메일",
-      accessor: "email",
-    },
-    {
-      Header: "가입일",
-      accessor: "createdAt",
-      Cell: ({ value }) => new Date(value).toLocaleDateString(), // 날짜 포맷팅
-    },
-  ];
+  const memoizedData = useMemo(() => users, [users]);
+  const memoizedColumns = useMemo(() =>
+    [
+      {
+        Header: "이름",
+        accessor: "username", // 데이터의 키
+      },
+      {
+        Header: "이메일",
+        accessor: "email",
+      },
+      {
+        Header: "가입일",
+        accessor: "createdAt",
+        Cell: ({ value }) => new Date(value).toLocaleDateString(), // 날짜 포맷팅
+      },
+    ],[]);
 
   // React Table Hook 사용
-  // const {
-  //   getTableProps,
-  //   getTableBodyProps,
-  //   headerGroups,
-  //   rows,
-  //   prepareRow,
-  //   canPreviousPage,
-  //   canNextPage,
-  //   pageCount,
-  //   pageIndex,
-  //   pageSize,
-  //   setPageSize,
-  //   gotoPage,
-  //   nextPage,
-  //   previousPage,
-  //   pageOptions,
-  // } = useTable(
-  //   {
-  //     columns,
-  //     data: users,
-  //     initialState: { pageIndex: 0 }, // 초기 페이지 설정
-  //   },
-  //   usePagination // 페이지네이션 훅 사용
-  // );
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    canPreviousPage,
+    canNextPage,
+    pageCount,
+    pageIndex,
+    pageSize,
+    setPageSize,
+    gotoPage,
+    nextPage,
+    previousPage,
+    pageOptions,
+  } = useTable(
+    {
+      columns:memoizedColumns,
+      data: memoizedData,
+      initialState: { pageIndex: 0 }, // 초기 페이지 설정
+    },
+    usePagination // 페이지네이션 훅 사용
+  );
 
   // 사용자 데이터를 가져오는 useEffect
   useEffect(() => {
@@ -72,7 +72,7 @@ const Users = () => {
   return (
     <div className="users-container">
       <h1>회원 목록</h1>
-      {/* {loading ? (
+      {loading ? (
         <p>로딩 중...</p>
       ) : (
         <table {...getTableProps()} className="users-table">
@@ -98,10 +98,10 @@ const Users = () => {
             })}
           </tbody>
         </table>
-      )} */}
+      )} 
 
       {/* 페이지네이션 버튼 */}
-      {/* <div>
+       <div>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {"<<"}
         </button>
@@ -131,7 +131,7 @@ const Users = () => {
             </option>
           ))}
         </select> }
-      </div> */}
+      </div>
 
       <button onClick={() => navigate("/")}>홈으로 돌아가기</button>
     </div>

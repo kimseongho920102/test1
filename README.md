@@ -4,29 +4,29 @@ React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
 
 ## 개발일정
 
-시작일 : 2024-11-25
-제안서 : 1주
-요구사항 분석 : 1주
-개발 기본 환경 구성 : 4주
-화면 설계 : 2주
-테이블 설계 : 2주
-proto Type 개발 : 4주
-test and packaging : 1주
-프로젝트 완료 예정일 : 2025-04-30
+- 시작일 : 2024-11-25
+- 제안서 : 1주
+- 요구사항 분석 : 1주
+- 개발 기본 환경 구성 : 4주
+- 화면 설계 : 2주
+- 테이블 설계 : 2주
+- proto Type 개발 : 4주
+- test and packaging : 1주
+- 프로젝트 완료 예정일 : 2025-04-30
 
 ## 개발 인원 현황
 1명 - 개발 경력 2년
 
 ## 사용 기술
-Front End
-React, TypeScript, JavaScript, Jquery, Html, Css
+- Front End
+    - React, TypeScript, JavaScript, Jquery, Html, Css
 
-Back End
-java, spring, spring boot, Mybatis, H2, JPA
+- Back End
+    - java, spring, spring boot, Mybatis, H2, JPA
 
-API
-Highchart - 차트 
-DataTable - 그리드
+- API
+    - Highchart - 차트 
+    - DataTable - 그리드
 
 
 
