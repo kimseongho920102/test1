@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Input from "./components/BaseComponents/Input";
-import Search from "./components/BaseComponents/Search";
-import Checkbox from "./components/BaseComponents/Checkbox";
-import Modal from "./components/BaseComponents/Modal";
-import SingleDatePicker from "./components/BaseComponents/SingleDatePicker";
-import DoubleDatePicker from "./components/BaseComponents/DoubleDatePicker";
-import Textarea from "./components/BaseComponents/Textarea";
-import Select from "./components/BaseComponents/Select";
-import Rate from "./components/BaseComponents/Rate";
-import Radio from "./components/BaseComponents/Radio";
+import Input from "./baseComponents/Input";
+import Search from "./baseComponents/Search";
+import Checkbox from "./baseComponents/Checkbox";
+import Modal from "./baseComponents/Modal";
+import SingleDatePicker from "./baseComponents/SingleDatePicker";
+import DoubleDatePicker from "./baseComponents/DoubleDatePicker";
+import Textarea from "./baseComponents/Textarea";
+import Select from "./baseComponents/Select";
+import Rate from "./baseComponents/Rate";
+import Radio from "./baseComponents/Radio";
 
 const BaseComponent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
