@@ -21,12 +21,11 @@ const Signup = () => {
       }
       
       const response = await axios.post(`${API_URL}/api/signup`, { username, email, password });
-      console.log(response.data);
       setSuccess("회원가입 성공!");
       // 회원가입 후 회원 목록 페이지로 이동
       setTimeout(() => {
-        navigate("/users");  // '/users'는 회원 목록 페이지의 경로입니다.
-      }, 1500);  // 성공 메시지를 1.5초 정도 보여주고 페이지 이동
+        navigate("/"); 
+      }, 1500);  // 성공 메시지를 1.5초 정도 보여주고 로그인 페이지 이동
     } catch (error) {
       console.error("Error details:", error.response || error.message);
       alert("회원가입 실패. 콘솔을 확인하세요.");
