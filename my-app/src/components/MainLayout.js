@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Layout, Menu, Button } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import Users from "./Users"; // Users.js 컴포넌트 가져오기
+import BaseComponent from "./BaseComponent"; // Users.js 컴포넌트 가져오기
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -25,7 +26,7 @@ const MainLayout = () => {
       case "2":
         return <h2>프로젝트 페이지</h2>;
       case "3":
-        return <h2>기술 스택 페이지</h2>;
+        return <BaseComponent/>; //컴포넌트 모음
       case "4":
         return <h2>연락처 페이지</h2>;
       case "5":
@@ -54,7 +55,7 @@ const MainLayout = () => {
         >
           <Menu.Item key="1">소개</Menu.Item>
           <Menu.Item key="2">프로젝트</Menu.Item>
-          <Menu.Item key="3">기술 스택</Menu.Item>
+          <Menu.Item key="3">컴포넌트모음</Menu.Item>
           <Menu.Item key="4">연락처</Menu.Item>
           <Menu.Item key="5">시스템관리</Menu.Item>
         </Menu>
