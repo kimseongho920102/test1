@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GCP
 
 on:
   push:
@@ -6,32 +6,31 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout source code
       uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
       with:
-        node-version: '16'
-    - name: set User
+        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
+        project_id: deep-sun-444206-n0
+
+    - name: Build React
       run: |
-        git config --global user.email "akflsvkqpt@gmail.com"
-        git config --global user.name "kimseongho920102"
+        cd my-app
+        npm install
+        npm run build
 
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./my-app
+    - name: Copy React build to Spring Boot
+      run: |
+        cp -r my-app/build/* backend/src/main/resources/static/
 
-    - name: Build the project
-      run: npm run build
-      working-directory: ./my-app
-
-    - name: Deploy to GitHub Pages
-      run: npm run deploy
-      working-directory: ./my-app
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and Run Spring Boot
+      run: |
+        cd backend
+        ./gradlew clean build --refresh-dependencies
+        ./gradlew bootrun
