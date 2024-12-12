@@ -17,5 +17,6 @@ RUN echo "Spring Boot static files:" && ls -al /app/src/main/resources/static
 # 최종 실행 단계
 FROM openjdk:17-jdk-slim
 WORKDIR /app
+RUN
 COPY --from=spring-build /app/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
