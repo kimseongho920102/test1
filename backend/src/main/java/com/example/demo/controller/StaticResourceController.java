@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 
 @RestController
 public class StaticResourceController {
-    @CrossOrigin(origins = "https://vigilant-parakeet-rv5jwrg9qp63xr65-8080.app.github.dev")
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/manifest.json")
     public ResponseEntity<String> getManifest() {
         return new ResponseEntity<>("{}", HttpStatus.OK); // 예시 응답

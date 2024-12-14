@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const handleButtonClick = async () => {
         try {
-            const res = await axios.get("https://vigilant-parakeet-rv5jwrg9qp63xr65-8080.app.github.dev/api/selectWithValue", {
+            const res = await axios.get("http://localhost:8080/api/selectWithValue", {
                 params: { value: value },
             });
             setResponse(res.data);
