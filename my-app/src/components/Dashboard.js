@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const handleButtonClick = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/api/selectWithValue", {
+            const res = await axios.get("http://34.64.32.164:8080/api/selectWithValue", {
                 params: { value: value },
             });
             setResponse(res.data);
