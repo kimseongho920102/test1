@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css"; // CSS 파일을 import합니다.
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+const API_URL = process.env.REACT_APP_API_URL || "http://34.64.32.164:8080";
 
 const Login = () => {
   const [email, setEmail] = useState("");
