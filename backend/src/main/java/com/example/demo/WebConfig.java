@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://34.64.32.164:8080") // React 개발 서버 URL
+                .allowedOrigins("http://34.47.125.186:8080") // React 개발 서버 URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true); // 쿠키 및 인증정보 허용

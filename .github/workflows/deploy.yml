@@ -1,36 +1,24 @@
-name: Deploy to GCP
+name: Deploy to GCP VM
 
 on:
   push:
     branches:
-      - main
+      - main  # Main 브랜치 Push 감지
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
-      with:
-        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
-        project_id: deep-sun-444206-n0
-
-    - name: Build React
-      run: |
-        cd my-app
-        npm install
-        npm run build
-
-    - name: Copy React build to Spring Boot
-      run: |
-        cp -r my-app/build/* backend/src/main/resources/static/
-
-    - name: Build and Run Spring Boot
-      run: |
-        cd backend
-        ./gradlew clean build --refresh-dependencies
-        ./gradlew bootrun
+      - name: Deploy to GCP VM
+        uses: appleboy/ssh-action@v0.1.8 # 최신 안정 버전
+        with:
+          host: ${{ secrets.GCP_VM_HOST }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_VM_SSH_KEY }}
+          script: |
+            cd /path/to/project
+            git pull origin main
+            ./deploy.sh

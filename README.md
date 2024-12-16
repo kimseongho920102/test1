@@ -19,14 +19,13 @@ React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
 
 ## 사용 기술
 - Front End
-    - React, TypeScript, JavaScript, Jquery, Html, Css
+    - React, TypeScript, JavaScript, Jquery, Html, Css 
 
 - Back End
     - java, spring, spring boot, Mybatis, H2, JPA
 
 - API
-    - Highchart - 차트 
-    - DataTable - 그리드
+    - Antd : css 디자인 및 기본 컴포넌트 용도
 
 
 
@@ -41,9 +40,9 @@ React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
 
 ### 개발 기본 환경 구성
  - [2024-12-13](dailyReadMe/2024-12-13.md)
- 
-### 화면 설계
  - [2024-12-20](dailyReadMe/2024-12-20.md)
+### 화면 설계
+ - [2025-01-10](dailyReadMe/2025-01-10.md)
 ### 테이블 설계
 
 ### proto Type 개발
@@ -54,13 +53,13 @@ React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
 
 ## etc
 
-my-app : front
-프론트 개발 순서 빌드 - 배포 - 리액트 기동
-npm run build
-cp -r build/* ../backend/src/main/resources/static/
-npm start
+### my-app : front
+#### 프론트 개발 순서 빌드 - 배포 - 리액트 기동
+- npm run build
+- cp -r build/* ../backend/src/main/resources/static/
+- npm start
 
-backend : backend
-백엔드 개발 순서 클린 빌드 - 스프링 부트 기동
-./gradlew clean build --refresh-dependencies
-./gradlew bootrun
+### backend : backend
+#### 백엔드 개발 순서 클린 빌드 - 스프링 부트 기동
+- ./gradlew clean build --refresh-dependencies
+- ./gradlew bootrun
