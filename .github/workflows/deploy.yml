@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test network connectivity
-        run: traceroute 8.8.8.8
+        run: curl -I http://8.8.8.8
       - name: Checkout code
         uses: actions/checkout@v3
 
