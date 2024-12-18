@@ -1,3 +1,6 @@
+# 배포 주소
+- http://34.47.125.186:8080
+
 # Project Title
 
 React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
