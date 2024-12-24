@@ -16,7 +16,7 @@
 2024-12-02 07:50:46 [main] INFO  BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
 2024-12-02 07:50:46 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
 2024-12-02 07:50:46 [main] INFO  dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
-2024-12-02 07:50:46 [main] INFO  BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-12-02 07:50:46 [main] INFO  BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddyhttps://gw.mailplug.com/calendar
 2024-12-02 07:50:46 [main] INFO  JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2024-12-02 07:50:46 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
 2024-12-02 07:50:47 [main] WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
