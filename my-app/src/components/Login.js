@@ -10,9 +10,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const { token } = await DBConnection.post(email, password); // 공통 API 호출
+      // 공통 API 호출: 이메일과 비밀번호를 객체로 전달
+      const { token } = await DBConnection.post("/api/login", { email, password });
+
       localStorage.setItem("authToken", token); // JWT 토큰 저장
+
       navigate("/MainLayout"); // 대시보드로 이동
+      console.log('화면이 바뀔꺼야');
     } catch (error) {
       alert(`로그인 실패: ${error}`);
     }
