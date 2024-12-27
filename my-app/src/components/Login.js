@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const { token } = await DBConnection.login(email, password); // 공통 API 호출
+      const { token } = await DBConnection.post(email, password); // 공통 API 호출
       localStorage.setItem("authToken", token); // JWT 토큰 저장
       navigate("/MainLayout"); // 대시보드로 이동
     } catch (error) {

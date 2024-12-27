@@ -10,28 +10,51 @@ const instance = axios.create({
   },
 });
 
-// GET 요청
+  /**
+   * GET 요청 메서드
+   * @param {string} url - 요청 경로
+   * @param {object} [params] - 쿼리 파라미터 객체 (옵션)
+   * @returns {Promise<object>} - 응답 데이터
+   */
+
 export const get = (url, params) => {
   return instance.get(url, { params })
     .then(response => response.data)
     .catch(error => { throw error; });
 };
 
-// POST 요청
+  /**
+   * POST 요청 메서드
+   * @param {string} url - 요청 경로
+   * @param {object} [data] - 요청 본문 데이터 (옵션)
+   * @returns {Promise<object>} - 응답 데이터
+   */
+
 export const post = (url, data) => {
   return instance.post(url, data)
     .then(response => response.data)
     .catch(error => { throw error; });
 };
 
-// PUT 요청
+  /**
+   * PUT 요청 메서드
+   * @param {string} url - 요청 경로
+   * @param {object} [data] - 요청 본문 데이터 (옵션)
+   * @returns {Promise<object>} - 응답 데이터
+   */
+
 export const put = (url, data) => {
   return instance.put(url, data)
     .then(response => response.data)
     .catch(error => { throw error; });
 };
 
-// DELETE 요청
+ /**
+   * DELETE 요청 메서드
+   * @param {string} url - 요청 경로
+   * @returns {Promise<object>} - 응답 데이터
+   */
+  
 export const del = (url) => {
   return instance.delete(url)
     .then(response => response.data)
