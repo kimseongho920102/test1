@@ -11,6 +11,6 @@ cd ~/test1/backend
 ./gradlew clean build --refresh-dependencies
 
 # 서비스 재시작
-sudo systemctl restart backend
+sudo systemctl restart backend.service
 
 echo "Deployment completed!"
