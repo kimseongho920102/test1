@@ -50,6 +50,17 @@ const Login = () => {
           로그인
         </button>
       </form>
+      <div className="signup-link">
+        계정이 없으신가요? 
+      </div>
+      <div>
+        <button
+          type="button"
+          className="signup-button"
+          onClick={() => navigate("/signup")}>
+          회원가입
+        </button>
+      </div>
     </div>
   );
 };

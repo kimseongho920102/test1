@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import DBConnection from "../common/DBConnection"; // 공통 API 모듈 import
 import "./Signup.css";
 
 const Signup = () => {
@@ -11,7 +11,6 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const API_URL = process.env.REACT_APP_API_URL || "http://34.64.32.164:8080";
 
   const handleSignup = async () => {
     try {
@@ -20,7 +19,7 @@ const Signup = () => {
         return;
       }
       
-      const response = await axios.post(`${API_URL}/api/signup`, { username, email, password });
+      const response = await DBConnection.post("/api/login", {username, email, password });
       setSuccess("회원가입 성공!");
       // 회원가입 후 회원 목록 페이지로 이동
       setTimeout(() => {
