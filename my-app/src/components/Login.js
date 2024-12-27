@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import "./Login.css"; // CSS 파일을 import합니다.
-
-const API_URL = process.env.REACT_APP_API_URL || "http://34.64.32.164:8080";
+import DBConnection from "../common/DBConnection"; // 공통 API 모듈 import
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,20 +10,11 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${API_URL}/api/login`, {
-        email,
-        password,
-      });
-      const { token } = response.data;
-
-      // JWT 토큰을 로컬 스토리지에 저장
-      localStorage.setItem("authToken", token);
-
-      // 로그인 성공 후 대시보드로 이동
-      navigate("/MainLayout");
+      const { token } = await DBConnection.login(email, password); // 공통 API 호출
+      localStorage.setItem("authToken", token); // JWT 토큰 저장
+      navigate("/MainLayout"); // 대시보드로 이동
     } catch (error) {
-      console.error("Login failed:", error);
-      alert("로그인에 실패했습니다.");
+      alert(`로그인 실패: ${error}`);
     }
   };
 
@@ -57,17 +46,6 @@ const Login = () => {
           로그인
         </button>
       </form>
-      <div className="signup-link">
-        계정이 없으신가요? 
-      </div>
-        <div>
-          <button
-            type="button"
-            className="signup-button"
-            onClick={() => navigate("/signup")}>
-            회원가입
-          </button>
-        </div>
     </div>
   );
 };

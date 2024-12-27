@@ -44,10 +44,13 @@ React 와 Srping boot를 활용한 웹 개발 포트폴리오 용 프로젝트
 ### 개발 기본 환경 구성
  - [2024-12-13](dailyReadMe/2024-12-13.md)
  - [2024-12-20](dailyReadMe/2024-12-20.md)
+
 ### 화면 설계
  - [2025-01-10](dailyReadMe/2025-01-10.md)
-### 테이블 설계
 
+### 테이블 설계
+ - [2024-12-27](dailyReadMe/2024-12-27.md)
+ 
 ### proto Type 개발
 
 ### test and packaging
