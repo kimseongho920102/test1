@@ -16,7 +16,7 @@ const Login = () => {
       localStorage.setItem("authToken", token); // JWT 토큰 저장
 
       navigate("/MainLayout"); // 대시보드로 이동
-      console.log('화면이 바뀔꺼야');
+      console.log('화면이 바뀔꺼야 제발');
     } catch (error) {
       alert(`로그인 실패: ${error}`);
     }
