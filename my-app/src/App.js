@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import MainLayout from "./components/MainLayout";
 
 function App() {
-  console.log('배포 잘되었겠지?')
+  console.log('배포확인용')
   return (
     <Router>
       <Routes>
