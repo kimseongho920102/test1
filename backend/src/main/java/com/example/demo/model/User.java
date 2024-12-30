@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    
     @Column(nullable = false, unique = true)
+    private String userId;
+
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
@@ -22,12 +22,12 @@ public class User {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     // Getters and setters
-    public Long getId() {
-        return id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {

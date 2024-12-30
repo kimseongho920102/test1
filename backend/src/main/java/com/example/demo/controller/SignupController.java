@@ -20,15 +20,15 @@ public class SignupController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest request) {
-        // 이메일 중복 체크
-        if (userRepository.existsByEmail(request.getEmail())) {
+        // 아이디
+        if (userRepository.existsByUserId(request.getUserId())) {
             return ResponseEntity.badRequest().body(
-                new SignupResponse(false, "이미 사용 중인 이메일입니다.")
+                new SignupResponse(false, "이미 사용 중인 아이디입니다.")
             );
         }
 
         // 사용자 등록
-        User newUser = userService.registerUser(request.getUsername(), request.getEmail(), request.getPassword());
+        User newUser = userService.registerUser(request.getUsername(), request.getUserId(), request.getEmail(), request.getPassword());
         if (newUser != null) {
             return ResponseEntity.ok(new SignupResponse(true, "회원가입에 성공했습니다."));
         } else {

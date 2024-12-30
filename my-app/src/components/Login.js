@@ -6,7 +6,7 @@ import BaseButton from "./baseComponents/BaseButton"; // 공통 버튼 컴포넌
 import "./Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // 로딩 상태 관리
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Login = () => {
   const handleLogin = async () => {
     setLoading(true); // 로딩 상태 활성화
     try {
-      const { token } = await DBConnection.post("/api/login", { email, password });
+      const { token } = await DBConnection.post("/api/login", { userId, password });
       localStorage.setItem("authToken", token);
       navigate("/MainLayout");
     } catch (error) {
@@ -29,12 +29,12 @@ const Login = () => {
       <h1>로그인</h1>
       <form className="login-form" onSubmit={(e) => e.preventDefault()}>
         <BaseInput
-          label="이메일"
-          id="email"
-          type="email"
-          placeholder="이메일을 입력하세요"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          label="아이디"
+          id="userId"
+          type="text"
+          placeholder="아이디를 입력하세요"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
           required
         />
 

@@ -16,9 +16,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        if (userService.authenticate(request.getEmail(), request.getPassword())) {
+        if (userService.authenticate(request.getUserId(), request.getPassword())) {
             // JWT 토큰 생성 (예제)
-            String jwtToken = "mock-jwt-token-for-" + request.getEmail();
+            String jwtToken = "mock-jwt-token-for-" + request.getUserId();
             return ResponseEntity.ok(new LoginResponse(jwtToken));
         }
         return ResponseEntity.status(401).body("Unauthorized");
@@ -26,16 +26,16 @@ public class AuthController {
 
     // DTO 클래스 정의
     public static class LoginRequest {
-        private String email;
+        private String userId;
         private String password;
 
         // Getters and Setters
-        public String getEmail() {
-            return email;
+        public String getUserId() {
+            return userId;
         }
 
-        public void setEmail(String email) {
-            this.email = email;
+        public void setUserId(String userId) {
+            this.userId = userId;
         }
 
         public String getPassword() {

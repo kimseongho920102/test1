@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 public class SignupRequest {
     private String username;
+    private String userId;
     private String email;
     private String password;
 
@@ -27,5 +28,13 @@ public class SignupRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
