@@ -5,7 +5,7 @@ my-app/node_modules/
 /.pnp
 .pnp.js
 
-/backend/data/testdb.*
+backend/data/testdb.*
 
 # testing
 /coverage
