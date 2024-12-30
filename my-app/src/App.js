@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import MainLayout from "./components/MainLayout";
 
 function App() {
-  console.log('수정되었습니다.')
+  console.log('지워지면 이제 된거야.')
   return (
     <Router>
       <Routes>
