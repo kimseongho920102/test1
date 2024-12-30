@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import DBConnection from "../common/DBConnection"; // 공통 API 모듈 import
 
 const Dashboard = () => {
     const [value, setValue] = useState("");
@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const handleButtonClick = async () => {
         try {
-            const res = await axios.get("http://34.64.32.164:8080/api/selectWithValue", {
+            const res = await DBConnection.get("/api/selectWithValue", {
                 params: { value: value },
             });
             setResponse(res.data);

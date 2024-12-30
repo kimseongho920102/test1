@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DBConnection from "../common/DBConnection"; // 공통 API 모듈 import
+import DBConnection from "../common/DBConnection";
+import BaseInput from "./baseComponents/BaseInput";
+import BaseButton from "./baseComponents/BaseButton"; // 공통 버튼 컴포넌트 import
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false); // 로딩 상태 관리
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    setLoading(true); // 로딩 상태 활성화
     try {
-      // 공통 API 호출: 이메일과 비밀번호를 객체로 전달
       const { token } = await DBConnection.post("/api/login", { email, password });
-
-      localStorage.setItem("authToken", token); // JWT 토큰 저장
-
-      navigate("/MainLayout"); // 대시보드로 이동
+      localStorage.setItem("authToken", token);
+      navigate("/MainLayout");
     } catch (error) {
       alert(`로그인 실패: ${error}`);
+    } finally {
+      setLoading(false); // 로딩 상태 비활성화
     }
   };
 
@@ -25,40 +28,43 @@ const Login = () => {
     <div className="login-container">
       <h1>로그인</h1>
       <form className="login-form" onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="email">이메일</label>
-        <input
-          type="email"
+        <BaseInput
+          label="이메일"
           id="email"
+          type="email"
           placeholder="이메일을 입력하세요"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        <label htmlFor="password">비밀번호</label>
-        <input
-          type="password"
+        <BaseInput
+          label="비밀번호"
           id="password"
+          type="password"
           placeholder="비밀번호를 입력하세요"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <button type="button" className="login-button" onClick={handleLogin}>
-          로그인
-        </button>
+        <BaseButton
+          label="로그인"
+          type="primary"
+          onClick={handleLogin}
+          loading={loading}
+          className="login-button"
+        />
       </form>
       <div className="signup-link">
         계정이 없으신가요? 
       </div>
       <div>
-        <button
-          type="button"
+        <BaseButton
+          label = "회원가입"
           className="signup-button"
-          onClick={() => navigate("/signup")}>
-          회원가입
-        </button>
+          onClick={() => navigate("/signup")}
+          />
       </div>
     </div>
   );

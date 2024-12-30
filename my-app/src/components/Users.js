@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useMemo } from "react";
-import axios from "axios";
 import { Table, Button, Space } from "antd"; // Ant Design 컴포넌트
 import { useNavigate } from "react-router-dom";
+import DBConnection from "../common/DBConnection"; // 공통 API 모듈 import
 import "./Users.css";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const API_URL = process.env.REACT_APP_API_URL || "http://34.64.32.164:8080";
   const columns = useMemo(() => [
     {
       title: "이름",
@@ -31,7 +30,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/users`);
+        const response = await DBConnection.get("/api/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);

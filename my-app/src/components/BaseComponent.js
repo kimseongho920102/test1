@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "./baseComponents/Input";
+import BaseInput from "./baseComponents/BaseInput";
 import Search from "./baseComponents/Search";
 import Checkbox from "./baseComponents/Checkbox";
 import Modal from "./baseComponents/Modal";
@@ -23,7 +23,7 @@ const BaseComponent = () => {
 
       <div style={{ marginBottom: "20px" }}>
         <h2>Input</h2>
-        <Input placeholder="Enter text here" />
+        <BaseInput placeholder="Enter text here" />
       </div>
 
       <div style={{ marginBottom: "20px" }}>
