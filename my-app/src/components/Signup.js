@@ -22,7 +22,7 @@ const Signup = () => {
         return;
       }
       
-      const response = await DBConnection.post("/api/login", {username, userId, email, password });
+      const response = await DBConnection.post("/api/signup", {username, userId, email, password });
       setSuccess("회원가입 성공!");
       // 회원가입 후 회원 목록 페이지로 이동
       setTimeout(() => {
