@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+
+import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User registerUser(String username, String userId, String email , String password) {
+    public User registerUser(String userName, String userId, String userEmail , String password) {
         User user = new User();
-        user.setUsername(username);
+        user.setUserName(userName);
         user.setUserId(userId);
-        user.setEmail(email);
+        user.setUserEmail(userEmail);
         user.setPassword(password); // 암호화를 제거하고 평문 저장
         
         return userRepository.save(user);

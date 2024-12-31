@@ -1759,3 +1759,51 @@ drop table USERS [90107-214]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-31 01:09:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id varchar(20) not null,\000a        last_login timestamp(6),\000a        password varchar(255) not null,\000a        sign_date timestamp(6) not null,\000a        updated_at timestamp(6) not null,\000a        use_yn varchar(1) not null,\000a        user_email varchar(255) not null,\000a        user_name varchar(255) not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id varchar(20) not null,
+        last_login timestamp(6),
+        password varchar(255) not null,
+        sign_date timestamp(6) not null,
+        updated_at timestamp(6) not null,
+        use_yn varchar(1) not null,
+        user_email varchar(255) not null,
+        user_name varchar(255) not null,
+        primary key (user_id)
+    ) [42001-214]
+2024-12-31 01:09:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists [*]user \000a       drop constraint if exists UK_j09k2v8lxofv2vecxu2hde9so"; expected "identifier"; SQL statement:
+
+    alter table if exists user 
+       drop constraint if exists UK_j09k2v8lxofv2vecxu2hde9so [42001-214]
+2024-12-31 01:09:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists [*]user \000a       add constraint UK_j09k2v8lxofv2vecxu2hde9so unique (user_email)"; expected "identifier"; SQL statement:
+
+    alter table if exists user 
+       add constraint UK_j09k2v8lxofv2vecxu2hde9so unique (user_email) [42001-214]
+2024-12-31 01:10:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id varchar(20) not null,\000a        last_login timestamp(6),\000a        password varchar(255) not null,\000a        sign_date timestamp(6) not null,\000a        updated_at timestamp(6) not null,\000a        use_yn varchar(1) not null,\000a        user_email varchar(255) not null,\000a        user_name varchar(255) not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id varchar(20) not null,
+        last_login timestamp(6),
+        password varchar(255) not null,
+        sign_date timestamp(6) not null,
+        updated_at timestamp(6) not null,
+        use_yn varchar(1) not null,
+        user_email varchar(255) not null,
+        user_name varchar(255) not null,
+        primary key (user_id)
+    ) [42001-214]
+2024-12-31 01:10:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists [*]user \000a       drop constraint if exists UK_j09k2v8lxofv2vecxu2hde9so"; expected "identifier"; SQL statement:
+
+    alter table if exists user 
+       drop constraint if exists UK_j09k2v8lxofv2vecxu2hde9so [42001-214]
+2024-12-31 01:10:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists [*]user \000a       add constraint UK_j09k2v8lxofv2vecxu2hde9so unique (user_email)"; expected "identifier"; SQL statement:
+
+    alter table if exists user 
+       add constraint UK_j09k2v8lxofv2vecxu2hde9so unique (user_email) [42001-214]
