@@ -30,7 +30,7 @@ public class SignupController {
         }
 
         // 사용자 등록
-        User newUser = userService.registerUser(request.getUsername(), request.getUserId(), request.getEmail(), request.getPassword());
+        User newUser = userService.registerUser(request.getUserName(), request.getUserId(), request.getEmail(), request.getPassword());
         if (newUser != null) {
             return ResponseEntity.ok(new SignupResponse(true, "회원가입에 성공했습니다."));
         } else {
