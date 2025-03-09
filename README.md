@@ -2,7 +2,7 @@
 - 배포 주소 : http://34.64.157.30:8080
 
 ## 프로젝트 개요
-React 와 Spring Boot를 활용한 Full-Stack 웹 게백 프로젝트입니다.
+React 와 Spring Boot를 활용한 Full-Stack 웹 프로젝트입니다.
 - 사용자 로그인 및 관리 기능 구현
 - 대시보드에서 데이터 시각화 제공
 - RESTful API 기반 백업 구축 및 프론트엔드 연동
@@ -41,7 +41,7 @@ React 와 Spring Boot를 활용한 Full-Stack 웹 게백 프로젝트입니다.
 
 ## 프로젝트 실행 방법
 
-### 1️⃣ **로컴 경복 환경 실행**
+### 1️⃣ **local 환경 환경 실행**
 #### 🔹 **프론트엔드 (React) 실행**
 ```bash
 cd my-app
